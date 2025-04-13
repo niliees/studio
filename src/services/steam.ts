@@ -11,6 +11,14 @@ export interface SteamGame {
    * The name of the game.
    */
   name: string;
+   /**
+   * The image URL of the game.
+   */
+  imageUrl?: string;
+   /**
+   * The category of the game.
+   */
+  category?: string;
 }
 
 /**
@@ -24,4 +32,5 @@ export async function getGameDetails(steamLink: string): Promise<SteamGame | nul
 
   return null;
 }
+
 
