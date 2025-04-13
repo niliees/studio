@@ -9,13 +9,13 @@ body {
 
 @layer base {
   :root {
-    --background: 21,16,36;
-    --foreground: 235, 235, 245;
+    --background: 18, 18, 18;
+    --foreground: 224, 224, 224;
     --card: 26,23,40;
     --card-foreground: 235, 235, 245;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 180, 100%, 42%;
+    --primary: 180, 76%, 43%;
     --primary-foreground: 0 0% 98%;
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
@@ -44,13 +44,13 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 21,16,36;
-    --foreground: 235, 235, 245;
+    --background: 18, 18, 18;
+    --foreground: 224, 224, 224;
     --card: 26,23,40;
     --card-foreground: 235, 235, 245;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 180, 100%, 42%;
+    --primary: 180, 76%, 43%;
     --primary-foreground: 0 0% 9%;
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
