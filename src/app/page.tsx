@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState } from 'react';
@@ -15,6 +16,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
+import { Checkbox } from "@/components/ui/checkbox"
 
 interface GameForm {
   name: string;
@@ -23,7 +25,7 @@ interface GameForm {
   imageUrl: string;
 }
 
-const categories = ['Action', 'RPG', 'Strategy', 'Indie', 'Simulation', 'Adventure'];
+const categories = ['Action', 'RPG', 'Strategy', 'Indie', 'Simulation', 'Adventure', 'Horror', 'Story', 'Olympiaden', 'Cozy', 'Unreleased', 'Neu', 'VR'];
 
 export default function Home() {
   const [games, setGames] = useState<SteamGame[]>([
@@ -67,17 +69,18 @@ export default function Home() {
     <TooltipProvider>
       <div className="min-h-screen bg-background text-foreground">
         {/* Header */}
-        <div className="bg-card py-4 px-6 flex items-center justify-between border-b">
-          <h1 className="text-2xl font-bold">GameShelf</h1>
+        <div className="bg-background py-4 px-6 flex items-center justify-between border-b border-border">
+          <h1 className="text-2xl font-bold text-primary">Papaplatte Games</h1>
           <div className="flex items-center space-x-4">
             <Input
               type="text"
-              placeholder="Search for games..."
-              className="w-64 bg-input border rounded-md shadow-sm focus:ring-primary focus:border-primary"
+              placeholder="Suche"
+              className="w-64 bg-input border-border rounded-md shadow-sm focus:ring-primary focus:border-primary"
             />
+             <Checkbox id="gespielt" className="ml-2">Gespielte anzeigen</Checkbox>
             <Select>
-              <SelectTrigger className="bg-input border rounded-md shadow-sm focus:ring-primary focus:border-primary">
-                <SelectValue placeholder="All Categories" />
+              <SelectTrigger className="bg-input border-border rounded-md shadow-sm focus:ring-primary focus:border-primary">
+                <SelectValue placeholder="Alle Modi" />
               </SelectTrigger>
               <SelectContent>
                 {categories.map((category) => (
@@ -90,6 +93,13 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Category Tags */}
+        <div className="bg-background px-6 py-2 flex items-center space-x-2">
+          {categories.slice(0, 7).map((category) => (
+            <Button key={category} variant="outline" size="sm" className="rounded-full text-xs">{category}</Button>
+          ))}
+        </div>
+
         {/* Game Grid */}
         <div className="container mx-auto p-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -100,7 +110,7 @@ export default function Home() {
                   <CardTitle className="text-lg font-semibold">{game.name}</CardTitle>
                 </CardHeader>
                 <CardContent className="p-4">
-                  <p className="text-sm text-muted-foreground">{game.category}</p>
+                <p className="text-sm">{game.category}</p>
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Button variant="link" className="pl-0">
@@ -165,5 +175,3 @@ export default function Home() {
     </TooltipProvider>
   );
 }
-
-
